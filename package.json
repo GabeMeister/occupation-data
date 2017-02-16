@@ -1,0 +1,14 @@
+{
+  "name": "occupation-data",
+  "version": "1.0.0",
+  "description": "Occupation data visualized intuitively",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabe Jensen",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.2"
+  }
+}
