@@ -17,14 +17,19 @@
 
     <div class="container" ng-if="dataLoaded">
         <h1>Occupation Overview</h1>
-        <h3><span ng-bind="occupation.title"></span> in <span ng-bind="region.title"></span></h3>
+        <h4><span ng-bind="occupation.title"></span> in <span ng-bind="region.title"></span></h4>
+
+        <h3>Occupational Summary for <span ng-bind="occupation.title"></span></h3>
 
         <table>
             <tr>
                 <td>
-                    <p ng-bind="summary.jobs.regional"></p>
+                    <p ng-bind="summary.jobs.regional | number"></p>
                     <p>Jobs (<span ng-bind="summary.jobs.year"></span>)</p>
-                    <p><span ng-bind="summary.jobs.regional / summary.jobs.national_avg"></span> <span ng-bind="aboveOrBelow(summary.jobs.regional, summary.jobs.national_avg)"></span> National average</p>
+                    <p>
+                        <span ng-bind="(summary.jobs.regional / summary.jobs.national_avg) | percentage:0"></span>
+                        <span ng-bind="aboveOrBelow(summary.jobs.regional, summary.jobs.national_avg)"></span> National average
+                    </p>
                 </td>
                 <td>
                     <p><span ng-bind="plusOrMinus(summary.jobs_growth.regional)"></span><span ng-bind="summary.jobs_growth.regional"></span>%</p>
@@ -32,14 +37,15 @@
                     <p>Nation: <span ng-bind="plusOrMinus(summary.jobs_growth.regional)"></span><span ng-bind="summary.jobs_growth.national_avg"></span>%</p>
                 </td>
                 <td>
-                    <p>$<span ng-bind="summary.earnings.regional"></span>/hr</p>
+                    <p><span ng-bind="summary.earnings.regional | currency"></span>/hr</p>
                     <p>Median Hourly Earnings</p>
-                    <p>Nation: $<span ng-bind="summary.earnings.national_avg"></span>/hr</p>
+                    <p>Nation: <span ng-bind="summary.earnings.national_avg | currency"></span>/hr</p>
                 </td>
             </tr>
         </table>
 
         <h3>Regional Trends</h3>
+
         <canvas></canvas>
 
         <table>
@@ -52,28 +58,28 @@
             </tr>
             <tr>
                 <td>Region</td>
-                <td><span ng-bind="trendComparison.regional[0]"></span></td>
-                <td><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1]"></span></td>
-                <td><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] - trendComparison.regional[0]"></span></td>
-                <td><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] / trendComparison.regional[0] - 1"></span></td>
+                <td><span ng-bind="trendComparison.regional[0] | number"></span></td>
+                <td><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] | number"></span></td>
+                <td><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] - trendComparison.regional[0]) | number"></span></td>
+                <td><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] / trendComparison.regional[0] - 1) | number | percentage:1"></span></td>
             </tr>
             <tr>
                 <td>State</td>
-                <td><span ng-bind="trendComparison.state[0]"></span></td>
-                <td><span ng-bind="trendComparison.state[trendComparison.state.length - 1]"></span></td>
-                <td><span ng-bind="trendComparison.state[trendComparison.state.length - 1] - trendComparison.state[0]"></span></td>
-                <td><span ng-bind="trendComparison.state[trendComparison.state.length - 1] / trendComparison.state[0] - 1"></span></td>
+                <td><span ng-bind="trendComparison.state[0] | number"></span></td>
+                <td><span ng-bind="trendComparison.state[trendComparison.state.length - 1] | number"></span></td>
+                <td><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] - trendComparison.state[0]) | number"></span></td>
+                <td><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] / trendComparison.state[0] - 1) | percentage:1"></span></td>
             </tr>
             <tr>
                 <td>Nation</td>
-                <td><span ng-bind="trendComparison.nation[0]"></span></td>
-                <td><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1]"></span></td>
-                <td><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] - trendComparison.nation[0]"></span></td>
-                <td><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] / trendComparison.nation[0] - 1"></span></td>
+                <td><span ng-bind="trendComparison.nation[0] | number"></span></td>
+                <td><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] | number"></span></td>
+                <td><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] - trendComparison.nation[0]) | number"></span></td>
+                <td><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] / trendComparison.nation[0] - 1) | number | percentage:1"></span></td>
             </tr>
         </table>
 
-        <h3>Industries Employing <span>Computer Programmers</span></h3>
+        <h3>Industries Employing <span ng-bind="occupation.title"></span></h3>
 
         <hr>
 
@@ -86,9 +92,9 @@
             </tr>
             <tr ng-repeat="industry in employingIndustries.industries">
                 <td><span ng-bind="industry.title"></span></td>
-                <td><span ng-bind="industry.in_occupation_jobs"></span></td>
-                <td><span ng-bind="industry.in_occupation_jobs / employingIndustries.jobs"></span></td>
-                <td><span ng-bind="industry.in_occupation_jobs / industry.jobs"></span></td>
+                <td><span ng-bind="industry.in_occupation_jobs | number"></span></td>
+                <td><span ng-bind="(industry.in_occupation_jobs / employingIndustries.jobs) | number | percentage:1"></span></td>
+                <td><span ng-bind="(industry.in_occupation_jobs / industry.jobs) | number | percentage:1"></span></td>
             </tr>
         </table>
 
@@ -98,6 +104,7 @@
 
     <script src="node_modules/angular/angular.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/filters.js"></script>
     <script src="js/controllers/controller.js"></script>
 </body>
 
