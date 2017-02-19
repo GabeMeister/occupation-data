@@ -48,8 +48,12 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
         let stateData = TrendsDataFactory.getPercentChanges($scope.trendComparison.state);
         let nationData = TrendsDataFactory.getPercentChanges($scope.trendComparison.nation);
 
+        if ($scope.trendsChart != null) {
+            $scope.trendsChart.destroy();
+        }
+
         let canvasContext = document.getElementById("trends");
-        let trendsChart = new Chart(canvasContext, {
+        $scope.trendsChart = new Chart(canvasContext, {
             type: "line",
             data: {
                 labels: yearRangeArr.map(String),
@@ -61,11 +65,17 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
             },
             options: {
                 scales: {
-                    yAxes: [{
-                        gridLines: {
-                            display: false
+                    yAxes: [
+                        {
+                            gridLines: {
+                                display: false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Percent Change'
+                            }
                         }
-                    }]
+                    ]
                 }
             }
         });
@@ -74,11 +84,19 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
     function init() {
         $scope.dataLoaded = false;
+
+        // Computer Programmers
         $scope.occupationID = "15-1131";
         $scope.areaType = "msa";
         $scope.areaCode = "42660";
 
-        // TODO: remove this
+        // Graphic Designers
+        // $scope.occupationID = "14-2567";
+        // $scope.areaType = "msa";
+        // $scope.areaCode = "35204";
+
+        $scope.trendsChart = null;
+
         $scope.fetchData();
     }
 

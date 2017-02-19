@@ -1,8 +1,7 @@
 app.service("OccupationDataService", function($http, $q) {
-    var deferred = $q.defer();
+    var deferred;
 
     function handleData(response) {
-        console.log("handling data");
         deferred.resolve(response);
     }
 
@@ -12,6 +11,7 @@ app.service("OccupationDataService", function($http, $q) {
     }
 
     this.getOccupationData = function(dataFileName) {
+        deferred = $q.defer();
         $http.get(dataFileName).then(handleData, handleError);
         return deferred.promise;
     };

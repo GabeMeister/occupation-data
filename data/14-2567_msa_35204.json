@@ -1,0 +1,98 @@
+{
+    "occupation": {
+        "onet": "14-2567",
+        "title": "Graphic Designers"
+    },
+    "region": {
+        "type": "MSA",
+        "id": "35204",
+        "title": "New York"
+    },
+    "summary": {
+        "jobs": {
+            "year": 2016,
+            "regional": 9671,
+            "national_avg": 3194
+        },
+        "jobs_growth": {
+            "start_year": 2012,
+            "end_year": 2019,
+            "regional": 6.5,
+            "national_avg": 4.2
+        },
+        "earnings": {
+            "regional": 52.69,
+            "national_avg": 32.16
+        }
+    },
+    "trend_comparison": {
+        "start_year": 2012,
+        "end_year": 2019,
+        "regional": [
+            9832,
+            10238,
+            10238,
+            10408,
+            10732,
+            10824,
+            11486,
+            12847
+        ],
+        "state": [
+            10286,
+            10783,
+            10835,
+            11467,
+            12893,
+            13285,
+            16837,
+            17395
+        ],
+        "nation": [
+            281304,
+            294381,
+            301356,
+            345692,
+            360283,
+            402394,
+            412907,
+            414938
+        ]
+    },
+    "employing_industries": {
+        "year": 2016,
+        "jobs": 10732,
+        "industries": [
+            {
+                "naics": "284742",
+                "title": "Design Agencies",
+                "in_occupation_jobs": 3928,
+                "jobs": 43987
+            },
+            {
+                "naics": "901734",
+                "title": "Publishing Companies",
+                "in_occupation_jobs": 998,
+                "jobs": 12987
+            },
+            {
+                "naics": "843976",
+                "title": "Consulting Companies",
+                "in_occupation_jobs": 730,
+                "jobs": 10983
+            },
+            {
+                "naics": "217865",
+                "title": "Web Development Agencies",
+                "in_occupation_jobs": 5932,
+                "jobs": 73204
+            },
+            {
+                "naics": "457384",
+                "title": "Sales & Marketing Agencies",
+                "in_occupation_jobs": 234,
+                "jobs": 5931
+            }
+        ]
+    }
+}
