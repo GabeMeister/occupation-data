@@ -1,4 +1,4 @@
-app.controller("OccupationController", function ($scope, $http, TrendsFactory) {
+app.controller("OccupationController", function ($scope, $http, TrendsFormatterFactory, TrendsDataFactory) {
 
     $scope.aboveOrBelow = function (num1, num2) {
         text = "above";
@@ -43,19 +43,25 @@ app.controller("OccupationController", function ($scope, $http, TrendsFactory) {
     }
 
     function buildChart() {
-        let canvasContext = document.getElementById("trends");
+        let yearRangeArr = TrendsDataFactory.getYearRange($scope.trendComparison.start_year, $scope.trendComparison.end_year);
 
+        let regionalData = TrendsDataFactory.getPercentChanges($scope.trendComparison.regional);
+        let stateData = TrendsDataFactory.getPercentChanges($scope.trendComparison.state);
+        let nationData = TrendsDataFactory.getPercentChanges($scope.trendComparison.nation);
+        
+        let canvasContext = document.getElementById("trends");
         let trendsChart = new Chart(canvasContext, {
             type: "line",
             data: {
-                labels: ["2013", "2014", "2015", "2016", "2017", "2018",],
+                labels: yearRangeArr.map(String),
                 datasets: [
-                    TrendsFactory.regional(),
-                    TrendsFactory.state(),
-                    TrendsFactory.nation()
+                    TrendsFormatterFactory.regional(regionalData),
+                    TrendsFormatterFactory.state(stateData),
+                    TrendsFormatterFactory.nation(nationData)
                 ]
             }
         });
+        
     }
 
     function init() {
