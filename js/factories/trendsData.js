@@ -36,6 +36,9 @@ app.factory("TrendsDataFactory", function () {
                 let difference = currJobs - numJobsFirstYear;
                 let percentChange = (difference * 100) / numJobsFirstYear;
 
+                // Round to nearest hundreths
+                percentChange = Math.round(100 * percentChange) / 100;
+                
                 percentChangeArr.push(percentChange);
             }
         }
