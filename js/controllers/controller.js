@@ -58,6 +58,15 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
                     TrendsFormatterFactory.state(stateData),
                     TrendsFormatterFactory.nation(nationData)
                 ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
             }
         });
 
