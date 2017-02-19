@@ -1,8 +1,7 @@
-app.factory('TrendsFactory', function () {
+app.factory("TrendsFormatterFactory", function () {
     var factory = {};
 
-    factory.regional = function () {
-        console.log('getting regional');
+    factory.regional = function (numJobsArr) {
         return {
             label: "Regional",
             fill: false,
@@ -22,14 +21,12 @@ app.factory('TrendsFactory', function () {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [
-                30, 31, 31.2, 34, 36, 38
-            ],
-            spanGaps: false,
+            data: numJobsArr,
+            spanGaps: false
         };
     };
 
-    factory.state = function () {
+    factory.state = function (numJobsArr) {
         return {
             label: "State",
             fill: false,
@@ -49,14 +46,12 @@ app.factory('TrendsFactory', function () {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [
-                25, 25.6, 26, 27.2, 29, 30
-            ],
-            spanGaps: false,
+            data: numJobsArr,
+            spanGaps: false
         };
     };
 
-    factory.nation = function () {
+    factory.nation = function (numJobsArr) {
         return {
             label: "Nation",
             fill: false,
@@ -76,12 +71,10 @@ app.factory('TrendsFactory', function () {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [
-                12.3, 12.6, 12.7, 12.9, 13, 14
-            ],
-            spanGaps: false,
+            data: numJobsArr,
+            spanGaps: false
         };
     };
-
+    
     return factory;
 });
