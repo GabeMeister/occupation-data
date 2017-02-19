@@ -1,6 +1,6 @@
-app.controller("OccupationController", function ($scope, $http) {
+app.controller("OccupationController", function ($scope, $http, TrendsFactory) {
 
-    $scope.aboveOrBelow = function(num1, num2) {
+    $scope.aboveOrBelow = function (num1, num2) {
         text = "above";
         if (num1 < num2) {
             text = "below";
@@ -9,7 +9,7 @@ app.controller("OccupationController", function ($scope, $http) {
         return text;
     }
 
-    $scope.plusOrMinus = function(num1) {
+    $scope.plusOrMinus = function (num1) {
         var symbol = "+";
         if (num1 < 0) {
             symbol = "-";
@@ -32,12 +32,30 @@ app.controller("OccupationController", function ($scope, $http) {
         $scope.trendComparison = data.trend_comparison;
         $scope.employingIndustries = data.employing_industries;
 
+        buildChart();
+
         $scope.dataLoaded = true;
     }
 
     function handleError(response) {
         console.error("Unable to correctly fetch data");
         console.error(response);
+    }
+
+    function buildChart() {
+        let canvasContext = document.getElementById("trends");
+
+        let trendsChart = new Chart(canvasContext, {
+            type: "line",
+            data: {
+                labels: ["2013", "2014", "2015", "2016", "2017", "2018",],
+                datasets: [
+                    TrendsFactory.regional(),
+                    TrendsFactory.state(),
+                    TrendsFactory.nation()
+                ]
+            }
+        });
     }
 
     function init() {
