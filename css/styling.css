@@ -1,12 +1,19 @@
 /* G E N E R A L */
 .tableCell {
     vertical-align: middle;
+    border-bottom: 1px solid #d8d8d8;
     padding: 6px;
+    height: 15px;
 }
 
 .rightAlign {
     text-align: right;
 }
+
+/*table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}*/
 
 /* B A S E   C O N T A I N E R */
 #baseContainer {
@@ -40,11 +47,6 @@
 
 
 /* S U M M A R Y   T A B L E */
-table, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
 #summaryTable {
     width: 100%;
     margin-left: auto;
@@ -73,8 +75,29 @@ table, td {
     width: 100%;
 }
 
-.firstColumn {
+.regionColumn {
     width: 60%;
+}
+
+.circleKey {
+    height: 10px;
+    width: 10px;
+    border-radius: 40px;
+    background-color: black;
+}
+
+.squareKey {
+    height: 10px;
+    width: 10px;
+    background-color: rgba(17,133,196,1);
+}
+
+.triangleKey {
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 11px solid rgba(175,219,292,1);
 }
 
 
@@ -86,4 +109,21 @@ table, td {
 
 .industryTitle {
     width: 65%;
+}
+
+.barGraphCell {
+    position: relative;
+}
+
+.barGraphText {
+    z-index: 50;
+}
+
+.barGraphBar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-color: rgba(160, 194, 255, .5);
+    z-index: 5;
 }

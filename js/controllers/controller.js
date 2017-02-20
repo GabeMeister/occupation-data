@@ -41,6 +41,12 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
     }
 
+    $scope.getBarSize = function(percentStr) {
+        return {
+            "width": percentStr
+        };
+    }
+
     function buildTrendsChart() {
         let yearRangeArr = TrendsDataFactory.getYearRange($scope.trendComparison.start_year, $scope.trendComparison.end_year);
 

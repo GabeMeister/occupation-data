@@ -63,28 +63,38 @@
 
             <table id="trendsTable">
                 <tr>
-                    <td class="firstColumn tableCell">Region</td>
+                    <td class="tableCell"></td>
+                    <td class="regionColumn tableCell">Region</td>
                     <td class="tableCell"><span ng-bind="trendComparison.start_year"></span> Jobs</td>
                     <td class="tableCell"><span ng-bind="trendComparison.end_year"></span> Jobs</td>
                     <td class="tableCell">Change</td>
                     <td class="tableCell">% Change</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn tableCell">Region</td>
+                    <td class="tableCell">
+                        <div class="circleKey"></div>
+                    </td>
+                    <td class="regionColumn tableCell">Region</td>
                     <td class="tableCell"><span ng-bind="trendComparison.regional[0] | number"></span></td>
                     <td class="tableCell"><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] | number"></span></td>
                     <td class="tableCell"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] - trendComparison.regional[0]) | number"></span></td>
                     <td class="tableCell"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] / trendComparison.regional[0] - 1) | number | percentage:1"></span></td>
                 </tr>
                 <tr>
-                    <td class="firstColumn tableCell">State</td>
+                    <td class="tableCell">
+                        <div class="squareKey"></div>
+                    </td>
+                    <td class="regionColumn tableCell">State</td>
                     <td class="tableCell"><span ng-bind="trendComparison.state[0] | number"></span></td>
                     <td class="tableCell"><span ng-bind="trendComparison.state[trendComparison.state.length - 1] | number"></span></td>
                     <td class="tableCell"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] - trendComparison.state[0]) | number"></span></td>
                     <td class="tableCell"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] / trendComparison.state[0] - 1) | percentage:1"></span></td>
                 </tr>
                 <tr>
-                    <td class="firstColumn tableCell">Nation</td>
+                    <td class="tableCell">
+                        <div class="triangleKey"></div>
+                    </td>
+                    <td class="regionColumn tableCell">Nation</td>
                     <td class="tableCell"><span ng-bind="trendComparison.nation[0] | number"></span></td>
                     <td class="tableCell"><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] | number"></span></td>
                     <td class="tableCell"><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] - trendComparison.nation[0]) | number"></span></td>
@@ -107,7 +117,10 @@
                     <td class="rightAlign tableCell">% of Total Jobs in Industry <br/>(<span ng-bind="employingIndustries.year"></span>)</td>
                 </tr>
                 <tr ng-repeat="industry in employingIndustries.industries">
-                    <td class="industryTitle tableCell"><span ng-bind="industry.title"></span></td>
+                    <td class="industryTitle tableCell barGraphCell">
+                        <span class="barGraphText" ng-bind="industry.title"></span>
+                        <div class="barGraphBar" ng-style="getBarSize((industry.in_occupation_jobs / employingIndustries.jobs) | percentage:0)"></div>
+                    </td>
                     <td class="rightAlign tableCell"><span ng-bind="industry.in_occupation_jobs | number"></span></td>
                     <td class="rightAlign tableCell"><span ng-bind="(industry.in_occupation_jobs / employingIndustries.jobs) | number | percentage:1"></span></td>
                     <td class="rightAlign tableCell"><span ng-bind="(industry.in_occupation_jobs / industry.jobs) | number | percentage:1"></span></td>
