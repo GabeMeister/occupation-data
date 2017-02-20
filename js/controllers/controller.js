@@ -21,9 +21,7 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
     $scope.fetchData = function () {
         $scope.dataLoaded = false;
 
-        var dataFileName = "data/" + $scope.occupationID + "_" + $scope.areaType + "_" + $scope.areaCode + ".json";
-
-        var promise = OccupationDataService.getOccupationData(dataFileName);
+        var promise = OccupationDataService.getOccupationData($scope.occupationRequest);
         promise.then(function (response) {
             var data = response.data;
 
@@ -48,7 +46,6 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
     }
 
     $scope.outlookStyle = function(num) {
-        console.log("outlookStyle: " + num);
         var style = {
             "color": "#25A506"
         };
@@ -108,15 +105,19 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
         $scope.dataLoaded = false;
 
         // Computer Programmers
-        $scope.occupationID = "15-1131";
-        $scope.areaType = "msa";
-        $scope.areaCode = "42660";
+        $scope.occupationRequest = {
+            occupationID: "15-1131",
+            areaType: "msa",
+            areaCode: "42660"
+        };
 
         // Graphic Designers
-        // $scope.occupationID = "14-2567";
-        // $scope.areaType = "msa";
-        // $scope.areaCode = "35204";
-
+        // $scope.occupationRequest = {
+        //     occupationID: "14-2567",
+        //     areaType: "msa",
+        //     areaCode: "35204"
+        // };
+        
         $scope.trendsChart = null;
 
         $scope.fetchData();

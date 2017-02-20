@@ -30,6 +30,12 @@ h3 {
     margin-top: 7px;
 }
 
+hr {
+    color: #EEEEEE;
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+}
+
 td {
     font-size: 12px;
 }
@@ -60,19 +66,53 @@ td {
 /* F O R M */
 #occupationForm {
     width: 200px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 6px;
+    border: 1px solid black;
 }
 
 .occupationInput {
     width: 100%;
+    margin-top: 3px;
+    margin-bottom: 7px;
 }
 
 .inputButton {
     display: block;
-    width: 100px;
+    width: 120px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.inputButton {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 7px 14px 7px 14px;
+  text-decoration: none;
+}
+
+.inputButton:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
 
 
@@ -81,6 +121,7 @@ td {
 /* S U M M A R Y   T A B L E */
 #summaryTable {
     width: 100%;
+    margin-top: 7px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -88,6 +129,7 @@ td {
 .summaryCell {
     padding: 30px;
     text-align: center;
+    border: 1px solid #EEEEEE;
     
 }
 

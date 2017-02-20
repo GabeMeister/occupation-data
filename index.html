@@ -9,12 +9,12 @@
 
 <body ng-controller="OccupationController">
     <div id="baseContainer">
+        
         <form id="occupationForm">
             <span>Occupation ID:</span><br />
-            <input class="occupationInput" type="text" ng-model="occupationID" /><br /> <span>Area Type:</span><br />
-            <input class="occupationInput" type="text" ng-model="areaType" /><br /> <span>Area Code:</span><br />
-            <input class="occupationInput" type="text" ng-model="areaCode" /><br />
-            <br/>
+            <input class="occupationInput" type="text" ng-model="occupationRequest.occupationID" /><br /> <span>Area Type:</span><br />
+            <input class="occupationInput" type="text" ng-model="occupationRequest.areaType" /><br /> <span>Area Code:</span><br />
+            <input class="occupationInput" type="text" ng-model="occupationRequest.areaCode" /><br />
             <button class="inputButton" ng-click="fetchData()">Fetch Data</button>
         </form>
 
@@ -53,8 +53,7 @@
             </table>
 
             <br/>
-            <br/>
-
+            
             <h2>Regional Trends</h2>
 
             <hr>
@@ -69,40 +68,40 @@
                 <tr>
                     <td class="tableCell tableHeader"></td>
                     <td class="regionColumn tableCell tableHeader">Region</td>
-                    <td class="tableCell tableHeader"><span ng-bind="trendComparison.start_year"></span> Jobs</td>
-                    <td class="tableCell tableHeader"><span ng-bind="trendComparison.end_year"></span> Jobs</td>
-                    <td class="tableCell tableHeader">Change</td>
-                    <td class="tableCell tableHeader">% Change</td>
+                    <td class="tableCell tableHeader rightAlign"><span ng-bind="trendComparison.start_year"></span> Jobs</td>
+                    <td class="tableCell tableHeader rightAlign"><span ng-bind="trendComparison.end_year"></span> Jobs</td>
+                    <td class="tableCell tableHeader rightAlign">Change</td>
+                    <td class="tableCell tableHeader rightAlign">% Change</td>
                 </tr>
                 <tr>
                     <td class="tableCell">
                         <div class="circleKey"></div>
                     </td>
                     <td class="regionColumn tableCell">Region</td>
-                    <td class="tableCell"><span ng-bind="trendComparison.regional[0] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] - trendComparison.regional[0]) | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] / trendComparison.regional[0] - 1) | number | percentage:1"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.regional[0] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.regional[trendComparison.regional.length - 1] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] - trendComparison.regional[0]) | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.regional[trendComparison.regional.length - 1] / trendComparison.regional[0] - 1) | number | percentage:1"></span></td>
                 </tr>
                 <tr>
                     <td class="tableCell">
                         <div class="squareKey"></div>
                     </td>
                     <td class="regionColumn tableCell">State</td>
-                    <td class="tableCell"><span ng-bind="trendComparison.state[0] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="trendComparison.state[trendComparison.state.length - 1] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] - trendComparison.state[0]) | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] / trendComparison.state[0] - 1) | percentage:1"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.state[0] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.state[trendComparison.state.length - 1] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] - trendComparison.state[0]) | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.state[trendComparison.state.length - 1] / trendComparison.state[0] - 1) | percentage:1"></span></td>
                 </tr>
                 <tr>
                     <td class="tableCell">
                         <div class="triangleKey"></div>
                     </td>
                     <td class="regionColumn tableCell">Nation</td>
-                    <td class="tableCell"><span ng-bind="trendComparison.nation[0] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] - trendComparison.nation[0]) | number"></span></td>
-                    <td class="tableCell"><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] / trendComparison.nation[0] - 1) | number | percentage:1"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.nation[0] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="trendComparison.nation[trendComparison.nation.length - 1] | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] - trendComparison.nation[0]) | number"></span></td>
+                    <td class="tableCell rightAlign"><span ng-bind="(trendComparison.nation[trendComparison.nation.length - 1] / trendComparison.nation[0] - 1) | number | percentage:1"></span></td>
                 </tr>
             </table>
 
