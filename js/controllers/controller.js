@@ -121,16 +121,7 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
             areaType: "msa",
             areaCode: "42660"
         };
-
-        // Graphic Designers
-        // $scope.occupationRequest = {
-        //     occupationID: "99-9999",
-        //     areaType: "msa",
-        //     areaCode: "99999"
-        // };
         
-        
-
         $scope.fetchData();
     }
 
