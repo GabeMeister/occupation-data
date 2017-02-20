@@ -20,6 +20,10 @@
             <button class="inputButton" ng-click="fetchData()">Fetch Data</button>
         </form>
 
+        <div ng-if="errorOccurred" id="errorMessage">
+            <h1>Data Not Found</h1>
+        </div>
+
         <div class="dataContainer" ng-hide="!dataLoaded">
             <h1>Occupation Overview</h1>
             <h3><span ng-bind="occupation.title"></span> in <span ng-bind="region.title"></span></h3>

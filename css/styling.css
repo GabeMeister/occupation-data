@@ -53,11 +53,6 @@ td {
     font-weight: bold;
 }
 
-/*table, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}*/
-
 /* B A S E   C O N T A I N E R */
 #baseContainer {
     width: 1024px;
@@ -120,7 +115,13 @@ td {
   text-decoration: none;
 }
 
-
+/* E R R O R   M E S S A G E */
+#errorMessage {
+    width: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 /* S U M M A R Y   T A B L E */

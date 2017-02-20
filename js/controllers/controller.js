@@ -25,17 +25,24 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
         var promise = OccupationDataService.getOccupationData($scope.occupationRequest);
         promise.then(function (response) {
-            var data = response.data;
+            if (response.type == "error") {
+                $scope.errorOccurred = true;
+            }
+            else {
+                var data = response.data;
 
-            $scope.occupation = data.occupation;
-            $scope.region = data.region;
-            $scope.summary = data.summary;
-            $scope.trendComparison = data.trend_comparison;
-            $scope.employingIndustries = data.employing_industries;
+                $scope.occupation = data.occupation;
+                $scope.region = data.region;
+                $scope.summary = data.summary;
+                $scope.trendComparison = data.trend_comparison;
+                $scope.employingIndustries = data.employing_industries;
 
-            buildTrendsChart();
+                buildTrendsChart();
 
-            $scope.dataLoaded = true;
+                $scope.errorOccurred = false;
+                $scope.dataLoaded = true;
+            }
+            
         });
 
 
@@ -105,6 +112,8 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
     function init() {
         $scope.dataLoaded = false;
+        $scope.trendsChart = null;
+        $scope.errorOccurred = false;
 
         // Computer Programmers
         $scope.occupationRequest = {
@@ -120,7 +129,7 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
         //     areaCode: "99999"
         // };
         
-        $scope.trendsChart = null;
+        
 
         $scope.fetchData();
     }

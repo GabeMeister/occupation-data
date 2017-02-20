@@ -205,6 +205,7 @@ app.service("OccupationDataService", function($http, $q) {
     function handleError(response) {
         console.error("Unable to correctly fetch data");
         console.error(response);
+        deferred.resolve(response);
     }
 
     this.getOccupationData = function(occupationDataRequest) {
@@ -215,10 +216,19 @@ app.service("OccupationDataService", function($http, $q) {
         
         // We are justs mocking the request for now
         setTimeout(function() {
-            if (occupationDataRequest.occupationID === "15-1131") {
+            
+            if (occupationDataRequest.occupationID === "15-1131" &&
+                occupationDataRequest.areaType === "msa" &&
+                occupationDataRequest.areaCode === "42660") {
                 handleData(JSON.parse(computerProgrammerData));
-            } else {
+            }
+            else if (occupationDataRequest.occupationID === "99-9999" &&
+                    occupationDataRequest.areaType === "msa" &&
+                    occupationDataRequest.areaCode === "99999") {
                 handleData(JSON.parse(graphicDesignerTestData));
+            }
+            else {
+                handleError({"type": "error", "reason": "data not found"});
             }
             
         }, 400);
