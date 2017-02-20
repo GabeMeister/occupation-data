@@ -4,10 +4,7 @@ Occupation data visualized intuitively
 
 ## Installation
 
-1. Clone this repo with the following command:
-```
-git clone https://github.com/GabeMeister/occupation-data.git
-```
+1. Clone this repo with the following command: `git clone https://github.com/GabeMeister/occupation-data.git`
 2. Double click the index.html file to open it in a browser. Firefox or Chrome browsers are recommended.
 
 You can query for different data sets with the form at the top of the page. Another data set to try is:
