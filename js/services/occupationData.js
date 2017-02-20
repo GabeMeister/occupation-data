@@ -118,7 +118,7 @@ app.service("OccupationDataService", function($http, $q) {
             "start_year": 2012,
             "end_year": 2019,
             "regional": -4.9,
-            "national_avg": 4.2
+            "national_avg": -3.2
         },
         "earnings": {
             "regional": 52.69,

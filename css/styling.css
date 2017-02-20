@@ -2,7 +2,7 @@
 .tableCell {
     vertical-align: middle;
     border-bottom: 1px solid #d8d8d8;
-    padding: 6px;
+    padding: 7px;
     height: 15px;
 }
 
@@ -10,7 +10,7 @@
     text-align: right;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, td, button, input {
+h1, h2, h3, h4, h5, h6, p, span, button, input {
     font-family: Arial, Helvetica, sans-serif;
     color: #555555;
 }
@@ -38,6 +38,11 @@ hr {
 
 td {
     font-size: 12px;
+}
+
+.regularFont {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555555;
 }
 
 .bold {
@@ -191,14 +196,19 @@ td {
 
 .industryTitle {
     width: 60%;
+    font-weight: bold;
 }
 
 .barGraphCell {
     position: relative;
 }
 
+span.barGraphText {
+    color: rgba(17,133,196,1);
+}
+
 .barGraphText {
-    z-index: 50;
+    z-index: 5;
 }
 
 .barGraphBar {
@@ -206,6 +216,26 @@ td {
     top: 0px;
     left: 0px;
     height: 100%;
-    background-color: rgba(160, 194, 255, .5);
-    z-index: 5;
+    background-color: rgba(185, 207, 232, 0.31);
+    z-index: 50;
+}
+
+.industryThumbnailCell {
+    vertical-align: middle;
+    border-bottom: 1px solid #d8d8d8;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    height: 15px;
+    
+    position: relative;
+    width: 30px;
+    height: 15px;
+    background-color: rgba(185, 207, 232, 0.31);
+}
+
+.industryThumbnail {
+    position: absolute;
+    height: 20px;
+    top: 4px;
+    left: 5px;
 }
