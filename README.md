@@ -8,9 +8,9 @@ Occupation data visualized intuitively
 ```
 git clone https://github.com/GabeMeister/occupation-data.git
 ```
-1. Double click the index.html file to open it in a browser. Firefox or Chrome browsers are recommended.
+2. Double click the index.html file to open it in a browser. Firefox or Chrome browsers are recommended.
 
-You can query for different data sets with the form. Another data set to try is:
+You can query for different data sets with the form at the top of the page. Another data set to try is:
 
 - Occupation ID: 99-9999
 - Area Type: msa
