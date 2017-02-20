@@ -76,7 +76,8 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
                             }
                         }
                     ]
-                }
+                },
+                maintainAspectRatio: false
             }
         });
 

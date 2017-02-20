@@ -1,9 +1,89 @@
+/* G E N E R A L */
+.tableCell {
+    vertical-align: middle;
+    padding: 6px;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+/* B A S E   C O N T A I N E R */
+#baseContainer {
+    width: 1024px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* F O R M */
+#occupationForm {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.occupationInput {
+    width: 100%;
+}
+
+.inputButton {
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* S U M M A R Y   T A B L E */
 table, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-#trendsContainer {
-    width: 400px;
-    height: 400px;
+#summaryTable {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summaryCell {
+    padding: 30px;
+    text-align: center;
+    
+}
+
+
+
+/* T R E N D S   G R A P H */
+#trendsGraphContainer {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* T R E N D S   T A B L E */
+#trendsTable {
+    width: 100%;
+}
+
+.firstColumn {
+    width: 60%;
+}
+
+
+
+/* I N D U S T R I E S   T A B L E */
+#industriesTable {
+    width: 100%;
+}
+
+.industryTitle {
+    width: 65%;
 }
