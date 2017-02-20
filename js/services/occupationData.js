@@ -100,24 +100,24 @@ app.service("OccupationDataService", function($http, $q) {
 {
 	"data": {
     "occupation": {
-        "onet": "14-2567",
+        "onet": "99-9999",
         "title": "Graphic Designers"
     },
     "region": {
         "type": "MSA",
-        "id": "35204",
+        "id": "99999",
         "title": "New York"
     },
     "summary": {
         "jobs": {
             "year": 2016,
-            "regional": 9671,
-            "national_avg": 3194
+            "regional": 6415,
+            "national_avg": 10235
         },
         "jobs_growth": {
             "start_year": 2012,
             "end_year": 2019,
-            "regional": 6.5,
+            "regional": -4.9,
             "national_avg": 4.2
         },
         "earnings": {
@@ -129,14 +129,14 @@ app.service("OccupationDataService", function($http, $q) {
         "start_year": 2012,
         "end_year": 2019,
         "regional": [
-            9832,
+            12847,
             10238,
             10238,
             10408,
             10732,
             10824,
             11486,
-            12847
+            9832
         ],
         "state": [
             10286,

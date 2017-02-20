@@ -2,6 +2,7 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
     $scope.aboveOrBelow = function (num1, num2) {
         text = "above";
+
         if (num1 < num2) {
             text = "below";
         }
@@ -9,10 +10,11 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
         return text;
     }
 
-    $scope.plusOrMinus = function (num1) {
+    $scope.plusIfPositive = function (num1) {
         var symbol = "+";
+
         if (num1 < 0) {
-            symbol = "-";
+            symbol = "";
         }
 
         return symbol;
@@ -113,9 +115,9 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
 
         // Graphic Designers
         // $scope.occupationRequest = {
-        //     occupationID: "14-2567",
+        //     occupationID: "99-9999",
         //     areaType: "msa",
-        //     areaCode: "35204"
+        //     areaCode: "99999"
         // };
         
         $scope.trendsChart = null;
