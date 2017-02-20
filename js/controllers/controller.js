@@ -47,6 +47,21 @@ app.controller("OccupationController", function ($scope, $http, TrendsFormatterF
         };
     }
 
+    $scope.outlookStyle = function(num) {
+        console.log("outlookStyle: " + num);
+        var style = {
+            "color": "#25A506"
+        };
+
+        if (num < 0) {
+            style = {
+                "color": "red"
+            };
+        }
+
+        return style;
+    }
+
     function buildTrendsChart() {
         let yearRangeArr = TrendsDataFactory.getYearRange($scope.trendComparison.start_year, $scope.trendComparison.end_year);
 

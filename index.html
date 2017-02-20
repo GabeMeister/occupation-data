@@ -33,12 +33,14 @@
                         <p class="bold supportHeading">Jobs (<span ng-bind="summary.jobs.year"></span>)</p>
                         <p class="supportHeading">
                             <span ng-bind="(summary.jobs.regional / summary.jobs.national_avg) | percentage:0"></span>
-                            <span ng-bind="aboveOrBelow(summary.jobs.regional, summary.jobs.national_avg)"></span> National
+                            <span ng-style="outlookStyle(summary.jobs.regional / summary.jobs.national_avg)" ng-bind="aboveOrBelow(summary.jobs.regional, summary.jobs.national_avg)"></span> National
                             average
                         </p>
                     </td>
                     <td class="summaryCell">
-                        <p class="summaryHeading"><span ng-bind="plusOrMinus(summary.jobs_growth.regional)"></span><span ng-bind="summary.jobs_growth.regional"></span>%</p>
+                        <p ng-style="outlookStyle(summary.jobs_growth.regional)" class="summaryHeading">
+                            <span ng-style="outlookStyle(summary.jobs_growth.regional)" ng-bind="plusOrMinus(summary.jobs_growth.regional)"></span><span ng-style="outlookStyle(summary.jobs_growth.regional)" ng-bind="summary.jobs_growth.regional"></span>%
+                        </p>
                         <p class="bold supportHeading">% Change (<span ng-bind="summary.jobs_growth.start_year"></span> - <span ng-bind="summary.jobs_growth.end_year"></span>)</p>
                         <p class="supportHeading">Nation: <span ng-bind="plusOrMinus(summary.jobs_growth.regional)"></span><span ng-bind="summary.jobs_growth.national_avg"></span>%</p>
                     </td>
